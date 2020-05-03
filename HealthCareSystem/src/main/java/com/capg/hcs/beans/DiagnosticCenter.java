@@ -1,15 +1,12 @@
 package com.capg.hcs.beans;
 
 import javax.persistence.Entity;
-
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Diagnosticcenter")
+@Table(name = "DiagnosticCenter")
 public class DiagnosticCenter {
 
 	@Id
@@ -17,20 +14,6 @@ public class DiagnosticCenter {
 	private String centreId;
 
 	static int id;
-
-	private List<Test> lisOfTest;
-
-	public List<Test> getLisOfTest() {
-		return lisOfTest;
-	}
-
-	public void setLisOfTest(List<Test> lisOfTest) {
-		this.lisOfTest = lisOfTest;
-	}
-
-	public static void setId(int id) {
-		DiagnosticCenter.id = id;
-	}
 
 	@Column(name = "centreName")
 	private String centreName;
@@ -40,6 +23,10 @@ public class DiagnosticCenter {
 
 	@Column(name = "centreAddress")
 	private String centreAddress;
+
+	public static void setId(int id) {
+		DiagnosticCenter.id = id;
+	}
 
 	public String getCentreId() {
 		return centreId;

@@ -1,11 +1,12 @@
 package com.capg.hcs.beans;
 
 import javax.persistence.Entity;
-
-import java.util.List;
-
+import javax.persistence.FetchType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,39 +15,43 @@ public class Customer {
 	@Id
 	@Column(name = "customerId")
 	private String customerId;
-	
+
 	static int id;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "appointmentId", referencedColumnName = "appointmentId")
+	private UserAppointmentList userAppointmentList;
 	
-	public static void setId(int id) {
-		id = id++;
-	}
-
-	public void setTestList(List<Test> testList) {
-		this.testList = testList;
-	}
-
-	private List<Test> testList;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "testId", referencedColumnName = "testId")
+	private Test test;
 	
 	@Column(name = "customerName")
 	private String customerName;
-	
+
 	@Column(name = "customerAge")
 	private int customerAge;
-	
+
 	@Column(name = "customerGender")
 	private String customerGender;
-	
+
 	@Column(name = "customerPhonenumber")
 	private long customerPhonenumber;
-	
+
 	@Column(name = "customerPassword")
 	private String customerPassword;
-	
+
 	@Column(name = "customerEmail")
 	private String customerEmail;
 
 	public Customer() {
 		super();
+	}
+
+	public Customer(String customerId, String customerPassword) {
+		super();
+		this.customerId = customerId;
+		this.customerPassword = customerPassword;
 	}
 
 	public Customer(String customerId, String customerName, int customerAge, String customerGender,
@@ -122,6 +127,18 @@ public class Customer {
 
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
+	}
+
+	public static void setId(int id) {
+		id = id++;
+	}
+
+	public UserAppointmentList getUserAppointmentList() {
+		return userAppointmentList;
+	}
+
+	public void setUserAppointmentList(UserAppointmentList userAppointmentList) {
+		this.userAppointmentList = userAppointmentList;
 	}
 
 }

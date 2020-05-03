@@ -1,7 +1,5 @@
 package com.capg.hcs.beans;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,45 +17,6 @@ public class Admin {
 	
 	@Column(name = "adminPassword")
 	private String adminPassword;
-	
-	private List<Test> listOfTest;
-	
-	private Appointment appointment;
-	
-	public Appointment getAppointment() {
-		return appointment;
-	}
-
-	public void setAppointment(Appointment appointment) {
-		this.appointment = appointment;
-	}
-
-	public List<Test> getListOfTest() {
-		return listOfTest;
-	}
-
-	public void setListOfTest(List<Test> listOfTest) {
-		this.listOfTest = listOfTest;
-	}
-
-	public List<DiagnosticCenter> getListOfDiagnosticCenter() {
-		return listOfDiagnosticCenter;
-	}
-
-	public void setListOfDiagnosticCenter(List<DiagnosticCenter> listOfDiagnosticCenter) {
-		this.listOfDiagnosticCenter = listOfDiagnosticCenter;
-	}
-
-	public List<Appointment> getListOfAppointment() {
-		return listOfAppointment;
-	}
-
-	public void setListOfAppointment(List<Appointment> listOfAppointment) {
-		this.listOfAppointment = listOfAppointment;
-	}
-
-	private List<DiagnosticCenter> listOfDiagnosticCenter;
-	private List<Appointment> listOfAppointment;
 	
 	public Admin() {
 		super();

@@ -1,16 +1,22 @@
 package com.capg.hcs.beans;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "UserAppointmentList")
 public class UserAppointmentList {
 	
-	private Appointment appointment;
-	@Column(name = "appointmentStatus")
-	//private int userId;
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="appointmentId",referencedColumnName = "appointmentId")
+	private Appointment appointment;
+	
+	@Column(name = "appointmentStatus")
 	private String appointmentStatus;
 	
 	public Appointment getAppointment() {
