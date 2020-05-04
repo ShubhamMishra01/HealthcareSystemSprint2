@@ -10,8 +10,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "UserAppointmentList")
 public class UserAppointmentList {
-	
-	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="appointmentId",referencedColumnName = "appointmentId")
 	private Appointment appointment;

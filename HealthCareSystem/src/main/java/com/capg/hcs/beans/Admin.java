@@ -21,7 +21,6 @@ public class Admin {
 	public Admin() {
 		super();
 	}
-
 	public Admin(int adminId, String adminName, String adminPassword) {
 		super();
 		this.adminId = adminId;
